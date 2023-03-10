@@ -28,7 +28,7 @@ func main() {
 
 	today := (time.Now()).Format("02.01.06")
 	date_slice := []string{}
-	var holidays_string string = ("02.01.23 03.01.23 04.01.23 05.01.23 06.01.23")
+	var holidays_string string = ("23.02.23 24.02.23 08.03.23")
 	start_time := " 09:00:00"
 
 	for n := 1; (len(date_slice)) <= 8; n++ {
@@ -81,8 +81,8 @@ func main() {
 		chromedp.Sleep(2*time.Second),
 		chromedp.SendKeys(`//*[@id="X11"]`, сhange_number), //вписываем номер изменения
 		chromedp.SendKeys(`//*[@id="X11"]`, (kb.Enter)),    //сработало один раз
-		chromedp.WaitVisible(`#X15Readonly`),
-		chromedp.Value(`#X15Readonly`, &service, chromedp.NodeVisible), //считывает тип работ и записывает в переменную service
+		chromedp.WaitVisible(`#X16Readonly`),
+		chromedp.Value(`#X16Readonly`, &service, chromedp.NodeVisible), //считывает тип работ и записывает в переменную service
 
 	); err != nil {
 		log.Fatal(err)
@@ -90,10 +90,10 @@ func main() {
 	fmt.Println(service)
 	if service == "РБТ-Переустановка/ смена ОС на ВМ-" {
 		if err := chromedp.Run(ctx,
-			chromedp.WaitVisible(`#X171_t`), //план работ
-			chromedp.Click(`#X171_t`),
-			chromedp.WaitVisible(`#X180_1`), //ЗНР планирование
-			chromedp.Click(`#X180_1`),
+			chromedp.WaitVisible(`#X173_t`), //план работ
+			chromedp.Click(`#X173_t`),
+			chromedp.WaitVisible(`#X182_1`), //ЗНР планирование //*[@id="X182_1"]
+			chromedp.Click(`#X182_1`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.WaitVisible(`#X12`),     //исполнитель
 			chromedp.Click(`#X12`),
@@ -113,8 +113,8 @@ func main() {
 
 			// ЗНР 2
 
-			chromedp.WaitVisible(`#X180_2`),
-			chromedp.Click(`#X180_2`),
+			chromedp.WaitVisible(`#X182_2`), //*[@id="X182_2"]
+			chromedp.Click(`#X182_2`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -124,8 +124,8 @@ func main() {
 
 			// ЗНР 3
 
-			chromedp.WaitVisible(`#X180_3`),
-			chromedp.Click(`#X180_3`),
+			chromedp.WaitVisible(`#X182_3`), //*[@id="X182_3"]
+			chromedp.Click(`#X182_3`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -135,8 +135,8 @@ func main() {
 
 			// ЗНР 4
 
-			chromedp.WaitVisible(`#X180_4`),
-			chromedp.Click(`#X180_4`),
+			chromedp.WaitVisible(`#X182_4`),
+			chromedp.Click(`#X182_4`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -146,8 +146,8 @@ func main() {
 
 			// ЗНР 5
 
-			chromedp.WaitVisible(`#X180_5`),
-			chromedp.Click(`#X180_5`),
+			chromedp.WaitVisible(`#X182_5`),
+			chromedp.Click(`#X182_5`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -157,8 +157,8 @@ func main() {
 
 			// ЗНР 6
 
-			chromedp.WaitVisible(`#X180_6`),
-			chromedp.Click(`#X180_6`),
+			chromedp.WaitVisible(`#X182_6`),
+			chromedp.Click(`#X182_6`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -168,8 +168,8 @@ func main() {
 
 			// ЗНР 7
 
-			chromedp.WaitVisible(`#X180_7`),
-			chromedp.Click(`#X180_7`),
+			chromedp.WaitVisible(`#X182_7`),
+			chromedp.Click(`#X182_7`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -179,8 +179,8 @@ func main() {
 
 			// ЗНР 8
 
-			chromedp.WaitVisible(`#X180_8`),
-			chromedp.Click(`#X180_8`),
+			chromedp.WaitVisible(`#X182_8`),
+			chromedp.Click(`#X182_8`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -190,8 +190,8 @@ func main() {
 
 			// ЗНР 9
 
-			chromedp.WaitVisible(`#X180_9`),
-			chromedp.Click(`#X180_9`),
+			chromedp.WaitVisible(`#X182_9`),
+			chromedp.Click(`#X182_9`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -201,8 +201,8 @@ func main() {
 
 			// ЗНР 10 БД
 
-			chromedp.WaitVisible(`#X180_10`),
-			chromedp.Click(`#X180_10`),
+			chromedp.WaitVisible(`#X182_10`),
+			chromedp.Click(`#X182_10`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -212,8 +212,8 @@ func main() {
 
 			// ЗНР 11 СРК
 
-			chromedp.WaitVisible(`#X180_11`),
-			chromedp.Click(`#X180_11`),
+			chromedp.WaitVisible(`#X182_11`),
+			chromedp.Click(`#X182_11`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -223,8 +223,8 @@ func main() {
 
 			// // ЗНР 12 (сетевые правила)
 
-			// chromedp.WaitVisible(`#X180_12`),
-			// chromedp.Click(`#X180_11`),
+			// chromedp.WaitVisible(`#X182_12`),
+			// chromedp.Click(`#X182_11`),
 			// chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			// chromedp.Click(`#X26`),           //дата
 			// chromedp.SendKeys(`#X26`, kb.Home),
@@ -237,10 +237,10 @@ func main() {
 	}
 	if service == "РБТ-Перенос ВМ в DMZ-" {
 		if err := chromedp.Run(ctx,
-			chromedp.WaitVisible(`#X171_t`), //план работ
-			chromedp.Click(`#X171_t`),
-			chromedp.WaitVisible(`#X180_1`), //ЗНР планирование
-			chromedp.Click(`#X180_1`),
+			chromedp.WaitVisible(`#X173_t`), //план работ
+			chromedp.Click(`#X173_t`),
+			chromedp.WaitVisible(`#X182_1`), //ЗНР планирование
+			chromedp.Click(`#X182_1`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.WaitVisible(`#X12`),     //исполнитель
 			chromedp.Click(`#X12`),
@@ -260,8 +260,8 @@ func main() {
 
 			// ЗНР 2
 
-			chromedp.WaitVisible(`#X180_2`),
-			chromedp.Click(`#X180_2`),
+			chromedp.WaitVisible(`#X182_2`),
+			chromedp.Click(`#X182_2`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -271,8 +271,8 @@ func main() {
 
 			// ЗНР 3
 
-			chromedp.WaitVisible(`#X180_3`),
-			chromedp.Click(`#X180_3`),
+			chromedp.WaitVisible(`#X182_3`),
+			chromedp.Click(`#X182_3`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -282,8 +282,8 @@ func main() {
 
 			// ЗНР 4
 
-			chromedp.WaitVisible(`#X180_4`),
-			chromedp.Click(`#X180_4`),
+			chromedp.WaitVisible(`#X182_4`),
+			chromedp.Click(`#X182_4`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -293,8 +293,8 @@ func main() {
 
 			// ЗНР 5
 
-			chromedp.WaitVisible(`#X180_5`),
-			chromedp.Click(`#X180_5`),
+			chromedp.WaitVisible(`#X182_5`),
+			chromedp.Click(`#X182_5`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -304,8 +304,8 @@ func main() {
 
 			// ЗНР 6
 
-			chromedp.WaitVisible(`#X180_6`),
-			chromedp.Click(`#X180_6`),
+			chromedp.WaitVisible(`#X182_6`),
+			chromedp.Click(`#X182_6`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -315,8 +315,8 @@ func main() {
 
 			// ЗНР 7
 
-			chromedp.WaitVisible(`#X180_7`),
-			chromedp.Click(`#X180_7`),
+			chromedp.WaitVisible(`#X182_7`),
+			chromedp.Click(`#X182_7`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -326,8 +326,8 @@ func main() {
 
 			// ЗНР 8
 
-			chromedp.WaitVisible(`#X180_8`),
-			chromedp.Click(`#X180_8`),
+			chromedp.WaitVisible(`#X182_8`),
+			chromedp.Click(`#X182_8`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -337,8 +337,8 @@ func main() {
 
 			// ЗНР 9
 
-			chromedp.WaitVisible(`#X180_9`),
-			chromedp.Click(`#X180_9`),
+			chromedp.WaitVisible(`#X182_9`),
+			chromedp.Click(`#X182_9`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -351,10 +351,10 @@ func main() {
 	}
 	if service == "РБТ-Снятие ресурса с внешней публикации-" || service == "РБТ-Публикация приложения на WAF-" || service == "РБТ-Публикация на WAF приложения из Salt-" {
 		if err := chromedp.Run(ctx,
-			chromedp.WaitVisible(`#X171_t`), //план работ
-			chromedp.Click(`#X171_t`),
-			chromedp.WaitVisible(`#X180_1`), //ЗНР планирование
-			chromedp.Click(`#X180_1`),
+			chromedp.WaitVisible(`#X173_t`), //план работ
+			chromedp.Click(`#X173_t`),
+			chromedp.WaitVisible(`#X182_1`), //ЗНР планирование
+			chromedp.Click(`#X182_1`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.WaitVisible(`#X12`),     //исполнитель
 			chromedp.Click(`#X12`),
@@ -374,8 +374,8 @@ func main() {
 
 			// ЗНР 2
 
-			chromedp.WaitVisible(`#X180_2`),
-			chromedp.Click(`#X180_2`),
+			chromedp.WaitVisible(`#X182_2`),
+			chromedp.Click(`#X182_2`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -385,8 +385,8 @@ func main() {
 
 			// ЗНР 3
 
-			chromedp.WaitVisible(`#X180_3`),
-			chromedp.Click(`#X180_3`),
+			chromedp.WaitVisible(`#X182_3`),
+			chromedp.Click(`#X182_3`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -396,8 +396,8 @@ func main() {
 
 			// ЗНР 4
 
-			chromedp.WaitVisible(`#X180_4`),
-			chromedp.Click(`#X180_4`),
+			chromedp.WaitVisible(`#X182_4`),
+			chromedp.Click(`#X182_4`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -410,10 +410,10 @@ func main() {
 	}
 	if service == "РБТ-Изменение политики безопасности WAF-" || service == "РБТ-Удаление DNS записи в публичном домене-" || service == "РБТ-Добавление DNS записи в публичном домене-" || service == "РБТ-Изменение DNS записи в публичном домене-" {
 		if err := chromedp.Run(ctx,
-			chromedp.WaitVisible(`#X171_t`), //план работ
-			chromedp.Click(`#X171_t`),
-			chromedp.WaitVisible(`#X180_1`), //ЗНР планирование
-			chromedp.Click(`#X180_1`),
+			chromedp.WaitVisible(`#X173_t`), //план работ
+			chromedp.Click(`#X173_t`),
+			chromedp.WaitVisible(`#X182_1`), //ЗНР планирование
+			chromedp.Click(`#X182_1`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.WaitVisible(`#X12`),     //исполнитель
 			chromedp.Click(`#X12`),
@@ -433,8 +433,8 @@ func main() {
 
 			// ЗНР 2
 
-			chromedp.WaitVisible(`#X180_2`),
-			chromedp.Click(`#X180_2`),
+			chromedp.WaitVisible(`#X182_2`),
+			chromedp.Click(`#X182_2`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
@@ -444,8 +444,8 @@ func main() {
 
 			// ЗНР 3
 
-			chromedp.WaitVisible(`#X180_3`),
-			chromedp.Click(`#X180_3`),
+			chromedp.WaitVisible(`#X182_3`),
+			chromedp.Click(`#X182_3`),
 			chromedp.WaitVisible(`#X44Icon`), //ждать "к исполнению" (гарантия загрузки нужной страницы)
 			chromedp.Click(`#X26`),           //дата
 			chromedp.SendKeys(`#X26`, kb.Home),
